@@ -71,7 +71,8 @@
         const data = await response.json();
         chatbox.innerHTML += `<p><b>Bot:</b> ${data.answer}</p>`;
       } catch (error) {
-        chatbox.innerHTML += `<p><b>Bot:</b> Sorry, something went wrong.</p>`;
+        console.error('Fetch error:', error); // Log the error
+        chatbox.innerHTML += `<p><b>Bot:</b> Sorry, something went wrong. Error: ${error.message}</p>`;
       }
       
       document.getElementById('userInput').value = '';
